@@ -18,8 +18,8 @@ class DefaultController extends Controller
         ->getRepository('JdfHoroscopeBundle:Zodiac')
         ->find(1);
         
-        
-        return new \Symfony\Component\HttpFoundation\Response('Hello : '.$zodiac->getName());
+        return $this->render('JdfHoroscopeBundle:Default:index.html.twig', array('name' => $zodiac->getName()));
+        //return new \Symfony\Component\HttpFoundation\Response('Hello : '.$zodiac->getName());
     }
     
     public function zodiacAddAction()
