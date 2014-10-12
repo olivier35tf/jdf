@@ -1,0 +1,11 @@
+jdf_horoscope_homepage:
+    path:     /
+    defaults: { _controller: JdfHoroscopeBundle:Default:index }
+
+jdf_horoscope_zodiac:
+    path:     /zodiac/{id}/{label}
+    defaults: { _controller: JdfHoroscopeBundle:Default:zodiac }
+
+jdf_horoscope_zodiac_add:
+    path:     /zodiac/add
+    defaults: { _controller: JdfHoroscopeBundle:Default:zodiacAdd }

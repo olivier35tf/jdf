@@ -1,0 +1,4 @@
+jdf_horoscope:
+    resource: "@JdfHoroscopeBundle/Resources/config/routing.yml"
+    prefix:   /horoscope
+
