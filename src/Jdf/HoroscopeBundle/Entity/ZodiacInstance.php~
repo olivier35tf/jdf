@@ -5,12 +5,12 @@ namespace Jdf\HoroscopeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Zodiac
+ * ZodiacInstance
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class Zodiac
+class ZodiacInstance
 {
     /**
      * @var integer
@@ -20,13 +20,6 @@ class Zodiac
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
 
     /**
      * @var \DateTime
@@ -45,16 +38,30 @@ class Zodiac
     /**
      * @var string
      *
-     * @ORM\Column(name="sante", type="string", length=255)
+     * @ORM\Column(name="travail", type="string", length=255)
      */
-    private $sante;
+    private $travail;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="travail", type="string", length=255)
+     * @ORM\Column(name="famille", type="string", length=255)
      */
-    private $travail;
+    private $famille;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="type", type="integer")
+     */
+    private $type;
+    
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ZodiacInfo", inversedBy="products")
+     * @ORM\JoinColumn(name="zodiacinfo_id", referencedColumnName="id")
+     */
+    private $zodiacInfo;
 
 
     /**
@@ -68,33 +75,10 @@ class Zodiac
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     * @return Zodiac
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
      * Set date
      *
      * @param \DateTime $date
-     * @return Zodiac
+     * @return ZodiacInstance
      */
     public function setDate($date)
     {
@@ -117,7 +101,7 @@ class Zodiac
      * Set amour
      *
      * @param string $amour
-     * @return Zodiac
+     * @return ZodiacInstance
      */
     public function setAmour($amour)
     {
@@ -137,33 +121,10 @@ class Zodiac
     }
 
     /**
-     * Set sante
-     *
-     * @param string $sante
-     * @return Zodiac
-     */
-    public function setSante($sante)
-    {
-        $this->sante = $sante;
-
-        return $this;
-    }
-
-    /**
-     * Get sante
-     *
-     * @return string 
-     */
-    public function getSante()
-    {
-        return $this->sante;
-    }
-
-    /**
      * Set travail
      *
      * @param string $travail
-     * @return Zodiac
+     * @return ZodiacInstance
      */
     public function setTravail($travail)
     {
@@ -180,5 +141,51 @@ class Zodiac
     public function getTravail()
     {
         return $this->travail;
+    }
+
+    /**
+     * Set famille
+     *
+     * @param string $famille
+     * @return ZodiacInstance
+     */
+    public function setFamille($famille)
+    {
+        $this->famille = $famille;
+
+        return $this;
+    }
+
+    /**
+     * Get famille
+     *
+     * @return string 
+     */
+    public function getFamille()
+    {
+        return $this->famille;
+    }
+
+    /**
+     * Set type
+     *
+     * @param integer $type
+     * @return ZodiacInstance
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return integer 
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

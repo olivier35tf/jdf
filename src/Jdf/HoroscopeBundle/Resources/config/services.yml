@@ -1,4 +1,7 @@
+parameters:
+    test : "Valeur de la conf"
+
 services:
-#    jdf_horoscope.example:
-#        class: Jdf\HoroscopeBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    jdf_horoscope.pouette:
+        class: Jdf\HoroscopeBundle\Pouette
+        arguments: [%test%]

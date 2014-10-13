@@ -4,7 +4,7 @@ jdf_horoscope_homepage:
 
 jdf_horoscope_zodiac:
     path:     /zodiac/{id}/{label}
-    defaults: { _controller: JdfHoroscopeBundle:Default:zodiac }
+    defaults: { _controller: JdfHoroscopeBundle:Default:zodiacShow }
 
 jdf_horoscope_zodiac_add:
     path:     /zodiac/add

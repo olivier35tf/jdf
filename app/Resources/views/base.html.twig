@@ -1,13 +1,53 @@
+{# app/Resources/views/base.html.twig #}
+ 
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <title>{% block title %}Bootsrap et Symfony2{% endblock %}</title>
+ 
+        {# ... #}
+ 
+        {% block stylesheets %}
+        {% stylesheets
+            '%kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less'
+            '@JdfHoroscopeBundle/Resources/public/css/main.css'
+            filter='lessphp,cssrewrite'
+            output='css/compiled/main.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}  
+        {% endblock %}
+ 
+        {# ... #}
+ 
     </head>
     <body>
+ 
+        {% block navbar %}
+         {{ include('::navbar.html.twig')}}
+        {% endblock %}
+        
+        {# ... #}
+ 
+        <div class="container">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        </div>
+ 
+        {% block javascripts %}
+        {% javascripts
+            '../vendor/components/jquery/jquery.min.js'
+            '../vendor/twbs/bootstrap/js/dropdown.js'
+            '@JdfHoroscopeBundle/Resources/public/js/main.js'
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% endblock %}
+ 
+        <script type="text/javascript">
+            $(document).ready(function() {
+                {% block document_ready %}{% endblock %}
+            });
+        </script>
     </body>
 </html>
