@@ -2,6 +2,10 @@ jdf_horoscope_homepage:
     path:     /
     defaults: { _controller: JdfHoroscopeBundle:Default:index }
 
+jdf_horoscope_chinois:
+    path:     /chinois/
+    defaults: { _controller: JdfHoroscopeBundle:Default:chinoisIndex }
+    
 jdf_horoscope_zodiac:
     path:     /zodiac/{id}/{label}
     defaults: { _controller: JdfHoroscopeBundle:Default:zodiacShow }

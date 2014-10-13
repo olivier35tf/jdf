@@ -28,15 +28,23 @@ class DefaultController extends Controller
     {
         $zodiac = $this->getDoctrine()
         ->getRepository('JdfHoroscopeBundle:ZodiacInfo')
-        ->find(1);
-        
+        ->find($id);  
 
+        $zodiacInstance = $this->getDoctrine()
+        ->getRepository('JdfHoroscopeBundle:ZodiacInstance')
+        ->findOneBy(array(
+            'type' => ZodiacInstance::TYPE_JOUR,
+            'zodiacInfo' => $zodiac    
+            ),
+            array('date' => 'desc'),
+            1
+        );
         
-        
-        $this->get("jdf_horoscope.pouette")->pouette();
+              
+        //$this->get("jdf_horoscope.pouette")->pouette();
         $confTest = $this->container->getParameter("test");
         
-        return $this->render('JdfHoroscopeBundle:Default:show.html.twig', array('name' => $zodiac->getName(). ' '.$confTest));
+        return $this->render('JdfHoroscopeBundle:Default:show.html.twig', array('zodiac' => $zodiacInstance));
         //return new \Symfony\Component\HttpFoundation\Response('Hello : '.$zodiac->getName());
     }
     

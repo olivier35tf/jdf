@@ -4,4 +4,4 @@
  * and open the template in the editor.
  */
 
-$('h1').hide(1000);
+//$('h1').hide(1000);
