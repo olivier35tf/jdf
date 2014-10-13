@@ -20,7 +20,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "components/jquery": "2.1.1",
         "twbs/bootstrap": "3.2.*@dev",
-        "leafo/lessphp": "dev-master"
+        "oyejorge/less.php": "1.7.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

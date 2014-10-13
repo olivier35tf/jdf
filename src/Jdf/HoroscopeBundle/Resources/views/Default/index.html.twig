@@ -10,7 +10,10 @@
  
         {% block stylesheets %}
         {% stylesheets
-            '../vendor/twbs/bootstrap/dist/css/bootstrap.css'
+            '%kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less'
+            '%kernel.root_dir%/../vendor/twbs/bootstrap/less/responsive-utilities.less'
+            '@JdfHoroscopeBundle/Resources/public/css/main.css'
+            filter='lessphp,cssrewrite'
         %}
             <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}  
